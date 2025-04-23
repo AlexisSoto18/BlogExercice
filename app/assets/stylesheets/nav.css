@@ -1,0 +1,26 @@
+.nav-link {
+  display: block;
+  padding: 8px 12px;
+  color: #f5f5f5; /* text-gray-900 */
+  border-radius: 4px; /* rounded-sm */
+}
+
+.nav-link:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+}
+
+@media (min-width: 768px) {
+  .nav-link:hover {
+    background-color: transparent; /* md:hover:bg-transparent */
+    color: #1dacd8; /* md:hover:text-blue-700 */
+  }
+}
+
+.dark .nav-link {
+  color: white; /* dark:text-white */
+}
+
+.dark .nav-link:hover {
+  color: #3b82f6; /* md:dark:hover:text-blue-500 */
+  background-color: #374151; /* dark:hover:bg-gray-700 */
+}
