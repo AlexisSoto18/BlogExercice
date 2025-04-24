@@ -11,6 +11,18 @@
         <li>
           <a href="#"><%= link_to "Escribir", new_article_path, class:"nav-link" %></a>
         </li>
+        <% if user_signed_in? %>
+          <li>
+           <%= button_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "Registrarse", new_user_registration_path, class:"nav-link" %>
+          </li>
+          <li>
+            <%= link_to "Iniciar sesion", new_user_session_path, class:"nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>  

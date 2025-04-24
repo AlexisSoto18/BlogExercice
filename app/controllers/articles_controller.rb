@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [ :create, :new, :edit, :update, :destroy ]
   before_action :set_article, only: [ :show, :edit, :update, :destroy ]
+
   def index
     @articles = Article.all
   end
@@ -7,23 +9,15 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
   def create
-    @article = Article.create(article_params)
-    if @article.save
-      redirect_to articles_url
-    else
-      render :new
-    end
+    @article = current_user.articles.build(article_params)
+    @article.save ? redirect_to(articles_url) : render(:new)
   end
   def show
   end
   def edit
   end
   def update
-    if @article.update(article_params)
-      redirect_to @article
-    else
-      render :edit
-    end
+    @article.update(article_params) ? redirect_to(@article) : render(:edit)
   end
   def destroy
     @article.destroy

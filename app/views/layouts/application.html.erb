@@ -18,6 +18,7 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag "centrar_div", media: "all" %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -26,6 +27,12 @@
   <body>
     <%= render "parcials/nav"%>
     <main class="container mx-auto mt-28 px-5 flex">
+       <% if notice %>
+        <p class="alert alert-primary"><%= notice %></p>
+      <%end%>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <%end%>
       <%= yield %>
     </main>
   </body>

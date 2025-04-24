@@ -8,4 +8,6 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
- @import "nav.css";
+
+@import "nav.css";
+@import "centrar_div.css";
