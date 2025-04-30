@@ -4,6 +4,17 @@
         <%= form.text_field :title %>
     </div>
     <div>
+        <%= form.label :category_elements %>
+        <div class="flex">
+            <% @categories.each do |category| %>
+                <label class="flex items-center mr-4">
+                    <%= form.check_box :category_elements, {multiple: true}, category.id, nil %>
+                    <%= category.title %>
+                </label>
+            <% end %>
+
+        </div>
+    <div>
         <%= form.label :content %>
         <%= form.rich_text_area :content %>
     </div>

@@ -1,0 +1,16 @@
+<div class="flex flex-col space-y-4">
+<h1 class="text-gray-700 text-base">Artículos de <span class="text-blue-700 text-base"><%= @user.email %></span></h1>
+<% if @articles.any? %>
+   <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <ul>
+        <% @articles.each do |article| %>
+          <li class="text-green-700 text-base">
+            <%= link_to article.title, article_path(article) %>
+          </li>
+        <% end %>
+      </ul>
+   </div>
+<% else %>
+  <p class="text-gray-700 text-base">Este usuario no ha escrito artículos aún.</p>
+<% end %>
+</div>

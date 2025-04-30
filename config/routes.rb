@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -14,5 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   root to: "home#index"
   get "bienvenido", to: "home#index"
-  resources :articles
+  resources :articles do
+    get "user/user/:user_id", to: "articles#from_author", on: :collection
+  end
 end
